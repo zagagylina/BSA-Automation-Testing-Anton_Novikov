@@ -74,7 +74,6 @@ describe('Registration:', function () {
     const url = await browser.getUrl();
     expect(url).to.be.eql('http://46.101.234.121/doctors');
     
-    
     await browser.reloadSession();
   });
 });
