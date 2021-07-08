@@ -1,21 +1,9 @@
-const assert = require('assert');
 const { expect } = require('chai');
 
 const rundomNumber = () => Date.now();
 
 describe('Registration:', function () {
-  xit('WDIO Test', async function () {
-    await browser.url('https://webdriver.io');
-
-    const title = await browser.getTitle();
-
-    assert.strictEqual(
-      title,
-      'WebdriverIO · Next-gen browser and mobile automation test framework for Node.js | WebdriverIO',
-    );
-  });
-
-  xit('should be able to register', async function () {
+  it('should be able to register', async function () {
     await browser.setWindowSize(1440, 960);
 
     await browser.url('/sign-up');
@@ -108,7 +96,7 @@ describe('Registration:', function () {
     await browser.pause(2000);
   });
 
-  it('[Error] other element would receive the click', async function () {
+  xit('[Error] other element would receive the click', async function () {
     await browser.maximizeWindow();
     await browser.url('http://46.101.234.121/sign-up');
     await browser.pause(2000);
