@@ -1,10 +1,8 @@
 const assert = require('assert');
 const { expect } = require('chai');
-// [x] Переход по урлу
-// [x] Заполнить форму
-// [x] Нажать кнопку рег.
-// [x] Проверка результата
-const rundomNumber = () => Math.floor(Math.random() * 10000).toString();
+
+const rundomNumber = () => Date.now();
+
 describe('Registration:', function () {
   xit('WDIO Test', async function () {
     await browser.url('https://webdriver.io');
