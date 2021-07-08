@@ -3,9 +3,10 @@ const { expect } = require('chai');
 const rundomNumber = () => Date.now();
 
 describe('Registration:', function () {
-  it('should be able to register', async function () {
-    await browser.setWindowSize(1440, 960);
 
+  it('should be able to register', async function () {
+
+    await browser.setWindowSize(1440, 960);
     await browser.url('/sign-up');
 
     const usernameField = await $('input[name="name"]');
@@ -74,46 +75,5 @@ describe('Registration:', function () {
     expect(url).to.be.eql('http://46.101.234.121/doctors');
 
     await browser.reloadSession();
-  });
-
-  xit('[Error] element not interactable', async function () {
-    await browser.maximizeWindow();
-    await browser.url('http://46.101.234.121/sign-up');
-
-    const _nameField = await $('input[name="name"]');
-
-    browser.execute(function () {
-      const nameField = document.querySelector('input[name="name"]');
-      nameField.style.display = 'none';
-      setTimeout(function () {
-        nameField.style.display = '';
-      }, 3000);
-    });
-
-    await _nameField.waitForDisplayed({ timeout: 5000 });
-    await browser.pause(2000);
-    await _nameField.setValue('test');
-    await browser.pause(2000);
-  });
-
-  xit('[Error] other element would receive the click', async function () {
-    await browser.maximizeWindow();
-    await browser.url('http://46.101.234.121/sign-up');
-    await browser.pause(2000);
-
-    const birthDateField = await $('input[name="birthdate"]');
-    await birthDateField.click();
-
-    await browser.pause(2000);
-
-    const name = await $('input[name="name"]');
-    await name.click();
-
-    await browser.pause(2000);
-
-    const passwordField = await $('input[name="password"]');
-    await passwordField.click();
-
-    await browser.pause(2000);
   });
 });
