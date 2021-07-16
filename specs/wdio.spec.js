@@ -17,8 +17,8 @@ describe('Registration:', function () {
     const retryPasswordField = await $('input[name="retypePassword"]');
     const phoneField = await $('input[name="phone"]');
 
-    const ddls = await $$('div.selectStyles__control');
-
+    const ddls = await $$('div.selectStyles__control')
+    
     const genderDdl = ddls[0];
     const statusDdl = ddls[1];
 
@@ -28,16 +28,17 @@ describe('Registration:', function () {
     const signUpButton = await $('button');
 
     await usernameField.waitForDisplayed({ timeout: 5000 });
-    await usernameField.setValue('Marcus');
+    await usernameField.setValue('Jane');
 
     await surnameField.waitForDisplayed({ timeout: 5000 });
-    await surnameField.setValue('Aurelius');
+    await surnameField.setValue('Smith');
 
     await birthDateField.waitForDisplayed({ timeout: 5000 });
-    await birthDateField.setValue('11/11/1999');
+    await birthDateField.setValue('08/08/1988');
 
     await emailField.waitForDisplayed({ timeout: 5000 });
-    await emailField.setValue(`marcus${rundomNumber()}@gmail.com`);
+    await emailField.setValue(`janesmith${rundomNumber()}@gmail.com`);
+
 
     await passwordField.waitForDisplayed({ timeout: 5000 });
     await passwordField.setValue('Pa55word');
